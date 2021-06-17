@@ -1,0 +1,56 @@
+/*
+This file is part of Fjordic distributed under the MIT License
+
+Copyright (c) 2020 Maxim Shpak
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+:root {
+    --shadow_color: rgba(0, 0, 0, 0.7);
+    --transparent_grey: rgba(12, 12, 13, 0.1);
+
+    /* 'Nordic Darker' theme colors */
+
+    --dark_color0: #1f232b;
+    --dark_color1: #2B303C;
+
+    /* Nord palette */
+
+    --night_color0: #2E3440;
+    --night_color1: #3B4252;
+    --night_color2: #434C5E;
+    --night_color3: #4C566A;
+
+    --snow_color0: #D8DEE9;
+    --snow_color1: #E5E9F0;
+    --snow_color2: #ECEFF4;
+
+    --frost_color0: #8FBCBB;
+    --frost_color1: #88C0D0;
+    --frost_color2: #81A1C1;
+    --frost_color3: #5E81AC;
+
+    --aurora_color0: #BF616A;
+    --aurora_color1: #D08770;
+    --aurora_color2: #EBCB8B;
+    --aurora_color3: #A3BE8C;
+    --aurora_color4: #B48EAD;
+}

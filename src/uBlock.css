@@ -1,0 +1,161 @@
+/*
+This file is part of Fjordic distributed under the MIT License
+
+Copyright (c) 2020 Maxim Shpak
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+/*================== uBlock ==================*/
+@-moz-document url-prefix("moz-extension://2356dd2e-7057-44f1-aa9f-ea32be92ed2e/") {
+    /* https://old.reddit.com/r/FirefoxCSS/wiki/index/uubo
+       https://github.com/gorhill/uBlock/blob/master/src/css/cloud-ui.css */
+}
+
+
+:root {
+    /* COLORS BASED ON https://protocol.mozilla.org/fundamentals/color.html */
+    /* --font-size: 12px; */
+    --default-ink: var(--fg_color) !important; /* default font color for most of the text */
+    /* --default-ink-a4: var(--light-gray-10-a4) !important; */
+    --default-ink-a50: var(--fg_color) !important; /* icon fill color for saveRules, revertRules and refresh */
+    --default-surface: var(--bg_color) !important; /* backgrounds in Logger Ui, settings, about,... */
+    --default-surface-hover: var(--hover_color) !important; /* highlight color for popup buttons and dashboard tabs */
+    --default-surface-border: var(--border_color) !important;
+    --bg-1: var(--border_color) !important; /* color of the ribbon across screen where the search bar is in My Filters */
+    /* --bg-1-border: hsla(250, 13%, 16%, 1) !important; */
+    /* --bg-overlay-50: #0008 !important; */
+    /* --bg-code: hsla(0, 2%, 0%, 0.8) !important; */
+    /* --fg-0-80: hsla(0, 0%, 53%, 0.8) !important; */
+    --fg-0-70: var(--border_color) !important; /* firewall popup text for domains and requests */
+    --fg-0-60: var(--fg_color) !important; /* add info about filters in 'Filter Lists' (on the right) */
+    --fg-0-50: var(--fg_color) !important; /* 'Filter Lists' icons */
+    /* --fg-0-40: hsla(0, 0%, 53%, 0.4) !important; /* Extra Tools bar in uBo popup logger version */
+    /* --fg-0-30: hsla(0, 0%, 53%, 0.3) !important; */
+    /* --fg-0-20: hsla(0, 0%, 53%, 0.2) !important; */
+    --link-ink: var(--link_color) !important; /* web link color */
+    /* --fieldset-header-surface: transparent !important; */
+    --fieldset-header-ink: var(--fg_color) !important; /* 'My Rules' permanent and temporary rule headers */
+    /* --hor-separator-color: var(--dark-gray-50) !important;  /* MIGHT BE JUST LEFT WHITE */
+    --button-surface: var(--fg_color) !important; /* button background */ /* the 'i' cannot be seen - the same colours */
+    --button-ink: var(--sec_bg_color) !important; /* color of text and icon inside button */
+    --button-surface-hover: var(--sec_fg_color) !important; /* button hover background */
+    /* --button-active-surface: var(--light-gray-70) !important; */
+    --button-important-surface: var(--bookmark_color) !important; /* important buttons background, e.g. update filters or create rule in picker popup */
+    --button-important-surface-hover: var(--sec_fg_color) !important; /* important buttons hover background */
+    /* --button-disabled-filter: opacity(38%); */
+    --button-disabled-surface: var(--fg_color) !important; /* disabled button background */
+    --button-disabled-ink: var(--sec_bg_color) !important; /* disabled button ink */
+    /* --button-preferred-surface: var(--dark-gray-50) !important; */
+    /* --button-preferred-ink: var(--light-gray-70) !important; */
+    /* --checkbox-size: calc(var(--font-size) + 2px); */
+    /* --checkbox-ink: var(--default-ink) !important; /* non-checked box border color */
+    --checkbox-checked-ink: var(--active_tab_color) !important; /* checked checkbox background-color and border-color */
+    --bg-transient-notice: transparent !important; /* color for the buttons for saveRules, revertRules and refresh - popup container */
+    --dashboard-bar-shadow: none !important; /* line across screen under tabs in settings */
+    --dashboard-tab-ink: var(--default-ink) !important;
+    --dashboard-tab-active-ink: var(--active_tab_color) !important;
+    --dashboard-tab-surface-hover: var(--default-surface-hover) !important;
+    --fg-icon-info-lvl-0-dimmed: var(--fg_color) !important; /* 'i' icon in 'My Rules'/'Setting' */
+    /* --fg-icon-info-lvl-0: inherit !important; */
+    --fg-icon-info-lvl-1-dimmed: var(--fg_color) !important; /* 'i' icon in 'Filter list' */
+    --fg-icon-info-lvl-1: var(--fg_color) !important; /* 'i' icon 'Filter list' hovered */
+    /* --info-lvl-2-ink: var(--yellow-50) !important; */
+    /* --info-lvl-2-ink-hover: var(--yellow-60) !important; */
+    --fg-icon-info-lvl-3-dimmed: var(--fg_color) !important; /* 'i' icon in 'Advanced Settings' */
+    --fg-icon-info-lvl-3: var(--fg_color) !important; /* 'i' icon in 'Advanced Settings' hovered */
+    /* --fg-icon-info-lvl-4-dimmed: hsla(0, 100%, 35%, 0.5) !important; */
+    /* --fg-icon-info-lvl-4: hsla(0, 100%, 35%, 1) !important; */
+    /* --large-icon-info-lvl-2: hsla(41, 100%, 47%, 1) !important; */
+    /* --bg-tooltip: var(--dark-gray-50) !important; */
+    /* --fg-tooltip: var(--light-gray-30) !important; */
+    /* --bg-popup-cell-1: var(--dark-gray-50) !important; /* uBo popup window accesible from logger */
+    --popup-power-ink: var(--ok_color) !important; /* power icon on */
+    /* --popup-power-ink-hover: brown !important; */
+    --bg-popup-cell-2: var(--hover_color) !important; /* firewall popup rows and columns background */
+    /* --bg-popup-cell-label-filter: opacity(40%); */
+    --fg-popup-cell-cname: var(--aurora_color2) !important;
+    --bg-popup-cell-allow: var(--ok_color) !important;
+    /* --bg-popup-cell-allow-own: hsla(120, 100%, 30%, 1); */
+    --bg-popup-cell-noop: var(--frost_color0) !important;
+    --bg-popup-cell-noop-own: var(--frost_color1) !important;
+    --bg-popup-cell-block: var(--not_ok_color) !important;
+    /* --bg-popup-cell-block-own: hsla(0, 100%, 40%, 1) !important; */
+    --bg-popup-cell-label-mixed: var(--aurora_color2) !important;
+    /* --popup-icon-x-ink: #e22850 !important; */
+
+    --cm-gutter-surface: var(--menu_color) !important;
+    --cm-gutter-border: var(--border_color) !important;
+    --cm-gutter-ink: var(--default-ink) !important;
+    --cm-searching-surface: var(--select_color) !important;
+    --cm-selection-surface: var(--select_color) !important;
+    --cm-selection-ink: var(--default-ink) !important;
+    --df-allow-ink: var(--bg-popup-cell-allow) !important;
+    --df-block-ink: var(--bg-popup-cell-block) !important;
+    --df-noop-ink: var(--bg-popup-cell-noop) !important;
+    --sf-comment-ink: var(--frost_color0) !important;
+    --sf-def-ink: var(--bookmark_color) !important;
+    --sf-keyword-ink: var(--aurora_color4) !important;
+    --sf-value-ink: var(--link-ink) !important;
+}
+
+
+#switch {
+    border-radius: 4px !important;
+}
+
+#refresh,
+#saveRules,
+#revertRules {
+    border-width: 0px !important;
+}
+
+#refresh:hover,
+#saveRules:hover,
+#revertRules:hover {
+    background-color: var(--default-surface-hover) !important;
+}
+
+.CodeMirror-activeline-background {
+    background-color: var(--default-surface-hover) !important;
+}
+
+.cm-search-widget {
+    background-color: var(--menu_color) !important;
+}
+
+.cm-search-widget .fa-icon:not(.fa-icon-ro):hover {
+    fill: var(--default-surface-hover) !important;
+}
+
+.cm-search-widget-input input {
+    background-color: var(--sec_bg_color) !important;
+    border-color: var(--border_color) !important;
+}
+
+
+#ublock0-epicker aside {
+    background-color: var(--menu_color) !important;
+}
+
+#ublock0-epicker #resultsetCount {
+    background-color: var(--menu_color) !important;
+    color: var(--default-ink) !important;
+}
