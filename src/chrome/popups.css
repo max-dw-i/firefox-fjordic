@@ -1,0 +1,202 @@
+/*
+This file is part of Fjordic distributed under the MIT License
+
+Copyright (c) 2021 Maxim Shpak
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+/*================================= POPUPS ==================================*/
+/* Print... form buttons */
+#navigateHome,
+#navigatePrevious,
+#navigateNext,
+#navigateEnd {
+    transition: all 0.3s ease !important;
+    outline: none !important;
+}
+
+#navigateHome:focus-visible,
+#navigatePrevious:focus-visible,
+#navigateNext:focus-visible,
+#navigateEnd:focus-visible {
+    background-color: var(--button-hover-bgcolor) !important;
+}
+
+/* Extension pop-up 'container', e.g. 'Request control' */
+#customizationui-widget-panel[viewId="PanelUI-webext-_1b1e6108-2d88-4f0f-a338-01f9dbcccd6f_-browser-action-view"] {
+    --arrowpanel-background: var(--toolbar-bgcolor) !important;
+    --arrowpanel-border-color: var(--border_color) !important;
+}
+
+@-moz-document url(chrome://global/content/commonDialog.xhtml),
+               url(chrome://global/content/resetProfile.xhtml),
+               url("chrome://mozapps/content/handling/permissionDialog.xhtml"),
+               url("chrome://mozapps/content/handling/appChooser.xhtml"),
+               url-prefix("chrome://global/content/print.html"),
+               url("chrome://browser/content/places/bookmarkProperties.xhtml"),
+               url("chrome://browser/content/places/bookmarkProperties2.xhtml")
+{
+:root,
+dialog
+{
+    --in-content-page-background: var(--arrowpanel-background) !important;
+    --in-content-page-color: var(--arrowpanel-color) !important;
+    --in-content-text-color: var(--in-content-page-color) !important;
+    --in-content-deemphasized-text: var(--deemphasized-text) !important;
+    --in-content-box-background: var(--alt_bg_color) !important;
+    --in-content-box-background-odd: var(--menu_color) !important;
+    --in-content-box-border-color: var(--border_color) !important;
+    --in-content-box-info-background: var(--alt_bg_color) !important;
+    --in-content-border-color: var(--border_color) !important;
+    --in-content-border-hover: var(--border_color) !important;
+    --in-content-border-invalid: var(--not_ok_color) !important;
+    --in-content-error-text-color: var(--not_ok_color) !important;
+    --in-content-button-background: var(--active_color) !important;
+    --in-content-button-background-hover: var(--hover_color) !important;
+    --in-content-button-background-active: var(--active_color) !important;
+    --in-content-icon-color: var(--text_color) !important;
+    --in-content-primary-button-text-color: var(--text_color) !important;
+    --in-content-primary-button-background: var(--accent_color) !important;
+    --in-content-primary-button-background-hover: var(--accent_hover_color) !important;
+    --in-content-primary-button-background-active: var(--active_color) !important;
+    --in-content-danger-button-background: var(--not_ok_color) !important;
+    --in-content-danger-button-background-hover: var(--not_ok_hover_color) !important;
+    --in-content-danger-button-background-active: var(--active_color) !important;
+    --in-content-table-background: var(--alt_bg_color) !important;
+    --in-content-table-border-dark-color: var(--border_color) !important;
+    --in-content-table-header-background: var(--menu_color) !important;
+    --in-content-table-header-color: var(--text_color) !important;
+    --in-content-dialog-header-background: var(--menu_color) !important;
+    --in-content-accent-color: var(--accent_color) !important;
+    --in-content-accent-color-active: var(--accent_color) !important;
+    --in-content-link-color: var(--link_color) !important;
+    --in-content-link-color-hover: var(--link_color) !important;
+    --in-content-link-color-active: var(--link_color) !important;
+    --in-content-link-color-visited: var(--visited_link_color) !important;
+    --in-content-focus-outline-color: var(--alt_accent_color) !important;
+    --in-content-item-hover: var(--hover_color) !important;
+    --in-content-item-selected: var(--active_color) !important;
+    --in-content-item-hover-text: var(--text_color) !important;
+    --in-content-item-selected-text: var(--text_color) !important;
+    --checkbox-border-color: var(--accent_color) !important;
+    --checkbox-checked-active-bgcolor: var(--accent_color) !important;
+    --checkbox-checked-bgcolor: var(--accent_color) !important;
+    --checkbox-checked-border-color: var(--accent_color) !important;
+    --checkbox-checked-color: var(--text_color) !important;
+    --checkbox-checked-hover-bgcolor: var(--accent_hover_color) !important;
+    --checkbox-unchecked-active-bgcolor: var(--active_color) !important;
+    --checkbox-unchecked-bgcolor: var(--alt_bg_color) !important;
+    --checkbox-unchecked-hover-bgcolor: var(--hover_color) !important;
+}
+
+.checkbox-check,
+input[type="checkbox"],
+input[type="radio"] {
+    transition: all 0.3s ease !important;
+    outline: none !important;
+}
+
+input[type="radio"] {
+    border-color: var(--checkbox-border-color) !important;
+    --in-content-button-background: var(--checkbox-unchecked-bgcolor) !important;
+}
+
+input[type="radio"]:enabled:focus-visible,
+checkbox:not([disabled="true"]):focus-visible > .checkbox-check,
+input[type="checkbox"]:enabled:focus-visible {
+    border-color: var(--focus_color) !important;
+}
+
+/* input[type="radio"], checkbox, input[type="checkbox"] work fine */
+input[type="radio"]:enabled:checked:active {
+    background-color: var(--checkbox-checked-active-bgcolor) !important;
+}
+
+button,
+select {
+    border: 1px solid transparent !important;
+    outline: none !important;
+}
+
+button:hover,
+button:-moz-focusring,
+select:hover,
+select:-moz-focusring {
+    transition: all 0.3s ease !important;
+}
+
+button:-moz-focusring,
+select:-moz-focusring {
+    border-color: var(--focus_color) !important;
+}
+
+/* 'Print' dialog specific */
+#copies-count:focus-visible {
+    border-color: transparent;
+    outline-width: 1px !important;
+}
+
+.toggle-group-label {
+    transition: all 0.3s ease !important;
+    outline-width: 1px !important;
+    outline-offset: 0px !important;
+}
+
+.toggle-group-input:focus-visible + .toggle-group-label {
+    outline-color: var(--focus_color) !important;
+}
+
+/* cannot be styled
+select > option:hover {
+    background-color: var(--in-content-item-hover) !important;
+    color: var(--in-content-page-color) !important;
+} */
+
+#more-settings > summary > .label,
+#more-settings > summary > .twisty {
+    transition: all 0.3s ease !important;
+}
+
+#more-settings > summary {
+    outline: none !important;
+}
+
+#more-settings > summary:hover > .label,
+#more-settings > summary:focus-visible > .label {
+    color: var(--in-content-primary-button-background) !important;
+}
+
+#more-settings > summary:hover > .twisty,
+#more-settings > summary:focus-visible > .twisty {
+    fill: var(--in-content-primary-button-background) !important;
+}
+
+#open-dialog-link:focus-visible {
+    text-decoration: underline !important;
+    outline: none !important;
+}
+
+/* about:support -> Refresh Firefox... */
+#refreshProfileLearnMore:focus-visible {
+    text-decoration: underline !important;
+    outline: none !important;
+}
+}

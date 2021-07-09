@@ -1,0 +1,99 @@
+/*
+This file is part of Fjordic distributed under the MIT License
+
+Copyright (c) 2021 Maxim Shpak
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+/*============================ DOWNLOAD DIALOG ============+================*/
+/* Colors in 'main.css' and 'popups.css' */
+#unknownContentType {
+    background-color: var(--toolbar-bgcolor) !important;
+    color: var(--toolbar-color) !important;
+    fill: currentColor !important;
+}
+
+
+@-moz-document url(chrome://mozapps/content/downloads/unknownContentType.xhtml)
+{
+button,
+menulist {
+    -moz-appearance: none !important;
+    transition: all 0.3s ease !important;
+    min-height: 32px !important;
+    padding: 3px 10px !important;
+    margin-inline-end: 8px !important;
+    border: 0 !important;
+    border-radius: 4px !important;
+    background-color: var(--button-bgcolor) !important;
+    color: var(--button-color) !important;
+    font-weight: 600 !important;
+    outline: 1px solid transparent !important;
+    outline-offset: 0px !important;
+}
+
+button {
+    width: 60px !important;
+}
+
+button:hover,
+menulist:hover {
+    background-color: var(--button-hover-bgcolor) !important;
+}
+
+button:focus-visible,
+menulist:focus-visible {
+    outline-color: var(--focus_color) !important;
+}
+
+button:active,
+menulist[open="true"] {
+    background-color: var(--button-active-bgcolor) !important;
+}
+
+button[label="OK"] {
+    background-color: var(--buttons-primary-button-bgcolor) !important;
+}
+
+button[label="OK"]:hover {
+    background-color: var(--buttons-primary-button-hover-bgcolor) !important;
+}
+
+button[label="OK"]:active {
+    background-color: var(--buttons-primary-button-active-bgcolor) !important;
+}
+
+/* Cannot draw a custom radio button like in context menus so native for now
+.radio-check {
+    -moz-appearance: none !important;
+} */
+
+.checkbox-check {
+    -moz-appearance: none !important;
+}
+checkbox:not([disabled="true"]):focus-visible > .checkbox-check {
+    --checkbox-unchecked-bgcolor: var(--alt_bg_color) !important;
+}
+
+checkbox:not([disabled="true"]):checked:focus-visible > .checkbox-check {
+    --checkbox-checked-bgcolor: var(--accent_color) !important;
+}
+}

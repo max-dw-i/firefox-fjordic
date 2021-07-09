@@ -1,0 +1,139 @@
+/*
+This file is part of Fjordic distributed under the MIT License
+
+Copyright (c) 2021 Maxim Shpak
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+@-moz-document url-prefix("about:preferences") {
+.dialogBox
+{
+    --in-content-page-background: var(--bg_color) !important;
+    --in-content-page-color: var(--text_color) !important;
+}
+}
+
+
+@-moz-document url("chrome://browser/content/preferences/dialogs/fonts.xhtml"),
+               url("chrome://browser/content/preferences/dialogs/colors.xhtml"),
+               url("chrome://browser/content/preferences/dialogs/browserLanguages.xhtml"),
+               url("chrome://browser/content/preferences/dialogs/languages.xhtml"),
+               url("chrome://browser/content/preferences/dialogs/connection.xhtml"),
+               url("chrome://browser/content/preferences/dialogs/permissions.xhtml"),
+               url("chrome://browser/content/preferences/dialogs/clearSiteData.xhtml"),
+               url("chrome://browser/content/preferences/dialogs/siteDataSettings.xhtml"),
+               url("chrome://mozapps/content/preferences/changemp.xhtml"),
+               url("chrome://browser/content/sanitize.xhtml"),
+               url("chrome://browser/content/preferences/dialogs/sanitize.xhtml"),
+               url("chrome://browser/content/preferences/dialogs/sitePermissions.xhtml"),
+               url("chrome://pippki/content/certManager.xhtml"),
+               url("chrome://pippki/content/device_manager.xhtml")
+{
+.dialog-content-box,
+.dialog-button-box,
+menupopup,
+richlistbox,
+listheader,
+tree {
+    --in-content-page-background: var(--bg_color) !important;
+    --in-content-page-color: var(--text_color) !important;
+    --in-content-text-color: var(--in-content-page-color) !important;
+    --in-content-deemphasized-text: var(--deemphasized-text) !important;
+    --in-content-box-background: var(--alt_bg_color) !important;
+    --in-content-box-background-odd: var(--menu_color) !important;
+    --in-content-box-border-color: var(--border_color) !important;
+    --in-content-box-info-background: var(--alt_bg_color) !important;
+    --in-content-border-color: var(--border_color) !important;
+    --in-content-border-hover: var(--border_color) !important;
+    --in-content-border-invalid: var(--not_ok_color) !important;
+    --in-content-error-text-color: var(--not_ok_color) !important;
+    --in-content-button-background: var(--active_color) !important;
+    --in-content-button-background-hover: var(--hover_color) !important;
+    --in-content-button-background-active: var(--active_color) !important;
+    --in-content-icon-color: var(--text_color) !important;
+    --in-content-primary-button-text-color: var(--text_color) !important;
+    --in-content-primary-button-background: var(--accent_color) !important;
+    --in-content-primary-button-background-hover: var(--accent_hover_color) !important;
+    --in-content-primary-button-background-active: var(--active_color) !important;
+    --in-content-danger-button-background: var(--not_ok_color) !important;
+    --in-content-danger-button-background-hover: var(--not_ok_hover_color) !important;
+    --in-content-danger-button-background-active: var(--active_color) !important;
+    --in-content-table-background: var(--alt_bg_color) !important;
+    --in-content-table-border-dark-color: var(--border_color) !important;
+    --in-content-table-header-background: var(--menu_color) !important;
+    --in-content-table-header-color: var(--text_color) !important;
+    --in-content-dialog-header-background: var(--menu_color) !important;
+    --in-content-accent-color: var(--accent_color) !important;
+    --in-content-accent-color-active: var(--accent_color) !important;
+    --in-content-link-color: var(--link_color) !important;
+    --in-content-link-color-hover: var(--link_color) !important;
+    --in-content-link-color-active: var(--link_color) !important;
+    --in-content-link-color-visited: var(--visited_link_color) !important;
+    --in-content-focus-outline-color: var(--alt_accent_color) !important;
+    --in-content-item-hover: var(--hover_color) !important;
+    --in-content-item-selected: var(--active_color) !important;
+    --in-content-item-hover-text: var(--text_color) !important;
+    --in-content-item-selected-text: var(--text_color) !important;
+    --checkbox-border-color: var(--accent_color) !important;
+    --checkbox-checked-active-bgcolor: var(--accent_color) !important;
+    --checkbox-checked-bgcolor: var(--accent_color) !important;
+    --checkbox-checked-border-color: var(--accent_color) !important;
+    --checkbox-checked-color: var(--text_color) !important;
+    --checkbox-checked-hover-bgcolor: var(--accent_hover_color) !important;
+    --checkbox-unchecked-active-bgcolor: var(--active_color) !important;
+    --checkbox-unchecked-bgcolor: var(--alt_bg_color) !important;
+    --checkbox-unchecked-hover-bgcolor: var(--hover_color) !important;
+}
+
+.dialog-content-box,
+.dialog-button-box {
+    border-color: transparent !important;
+    background-color: var(--in-content-page-background) !important;
+    color: var(--in-content-page-color) !important;
+}
+
+button,
+menulist {
+    transition: none !important; /* turned on in 'common.css'*/
+}
+
+button:hover,
+button:focus-visible,
+menulist:hover,
+menulist:focus-visible {
+    transition: all 0.3s ease !important; /* user see size changing if not on hover */
+}
+
+menuitem:not([disabled="true"])[selected="true"],
+richlistitem[selected] {
+    color: var(--in-content-page-color) !important;
+}
+
+menuitem:not([disabled="true"])[_moz-menuactive="true"] {
+	background-color: var(--in-content-button-background-hover) !important;
+    color: var(--in-content-page-color) !important;
+}
+
+treechildren::-moz-tree-cell-text(selected),
+treechildren::-moz-tree-twisty(selected) {
+    color: var(--in-content-page-color) !important;
+}
+}

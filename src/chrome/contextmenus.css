@@ -1,0 +1,131 @@
+/*
+This file is part of Fjordic distributed under the MIT License
+
+Copyright (c) 2021 Maxim Shpak
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+/*=========================== MENUS/CONTEXT MENUS ===========================*/
+menupopup:not(.PanelUI-subView) {
+    -moz-appearance: none !important;
+    background-color: var(--arrowpanel-background) !important;
+    color: var(--arrowpanel-color) !important;
+    border: 1px solid var(--arrowpanel-border-color) !important;
+}
+
+menuseparator {
+    -moz-appearance: none !important;
+    border-color: var(--autocomplete-popup-separator-color) !important;
+}
+
+menupopup menuitem,
+menupopup menu {
+	-moz-appearance: none !important;
+	padding: 4px 8px !important;
+}
+
+menupopup menu[disabled="true"] > .menu-text,
+menupopup menuitem[disabled="true"],
+menupopup menuitem[disabled="true"] > .menu-text {
+	color: var(--arrowpanel-dimmed) !important;
+}
+
+menupopup menu[disabled="true"][_moz-menuactive="true"],
+menupopup menuitem[disabled="true"][_moz-menuactive="true"] {
+    background-color: transparent !important;
+    color: var(--arrowpanel-dimmed) !important;
+}
+
+menupopup menu:not([disabled="true"], [open="true"])[_moz-menuactive="true"],
+menupopup menuitem:not([disabled="true"])[_moz-menuactive="true"] {
+	background-color: var(--arrowpanel-dimmed) !important;
+    color: var(--arrowpanel-color) !important;
+}
+
+menupopup menu[open="true"],
+menupopup menuitem:not([disabled="true"]):active {
+	background-color: var(--arrowpanel-dimmed-even-further) !important;
+}
+
+/* menu right arrow */
+menupopup menu:not(.subviewbutton) .menu-right {
+    -moz-appearance: none !important;
+    content: url("chrome://global/skin/icons/menu-arrow.svg") !important;
+    -moz-context-properties: fill, fill-opacity !important;
+    fill: var(--text_color) !important;
+    fill-opacity: 0.6 !important;
+    scale: 1.5 1.5 !important;
+}
+
+menupopup menu[disabled="true"]:not(.menu-iconic) .menu-right {
+    fill: var(--arrowpanel-dimmed) !important;
+}
+
+menupopup menuitem[type="checkbox"]::before,
+menupopup menuitem[type="radio"]::before {
+    display: -moz-inline-box !important;
+    width: 14px !important;
+    height: 14px !important;
+    margin-inline-end: 6px !important;
+    fill: currentColor !important;
+    -moz-context-properties: fill, fill-opacity, stroke !important;
+    content: "" !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    border: 1px solid var(--checkbox-border-color) !important;
+    background-color: var(--checkbox-unchecked-bgcolor) !important;
+    color: var(--toolbarbutton-icon-fill) !important;
+}
+
+menupopup menuitem[type="checkbox"]::before {
+    border-radius: 2px !important;
+}
+
+menupopup menuitem[type="checkbox"][checked="true"][_moz-menuactive="true"]:not([disabled="true"])::before,
+menupopup menuitem[type="radio"][checked="true"][_moz-menuactive="true"]:not([disabled="true"])::before {
+    background-color: var(--checkbox-checked-hover-bgcolor) !important;
+}
+
+menupopup menuitem[type="checkbox"][checked="true"]::before {
+    background-image: url("chrome://global/skin/icons/check.svg") !important;
+    background-color: var(--checkbox-checked-bgcolor) !important;
+}
+
+menupopup menuitem[type="radio"]::before,
+#viewSidebarMenu menuitem[type="checkbox"]::before {
+    border-radius: 100% !important;
+}
+
+menupopup menuitem[type="radio"][checked="true"]::before,
+#viewSidebarMenu menuitem[type="checkbox"][checked="true"]::before {
+    background-image: url("chrome://global/skin/icons/radio.svg") !important;
+    background-color: var(--checkbox-checked-bgcolor) !important;
+}
+
+menupopup menuitem[type="checkbox"] .menu-iconic-left,
+menupopup menuitem[type="radio"] .menu-iconic-left {
+    display: none !important;
+}
+
+menupopup menuitem[class^="unified-nav"][type="radio"][checked="true"] {
+    margin-left: 1px !important;
+}

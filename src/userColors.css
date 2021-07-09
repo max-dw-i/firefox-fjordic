@@ -1,7 +1,7 @@
 /*
 This file is part of Fjordic distributed under the MIT License
 
-Copyright (c) 2020 Maxim Shpak
+Copyright (c) 2021 Maxim Shpak
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -23,10 +23,8 @@ SOFTWARE.
 */
 
 
+/*================================== COLORS =================================*/
 :root {
-    --shadow_color: rgba(0, 0, 0, 0.7);
-    --transparent_grey: rgba(12, 12, 13, 0.1);
-
     /* 'Nordic Darker' theme colors */
 
     --dark_color0: #1f232b;
@@ -53,4 +51,75 @@ SOFTWARE.
     --aurora_color2: #EBCB8B;
     --aurora_color3: #A3BE8C;
     --aurora_color4: #B48EAD;
+
+    /* Other */
+
+    --overlay_color: rgba(0, 0, 0, 0.5); /* default firefox overlay color */
+    --frost_color2_60per: #657B95; /* mix of frost_color2 and 60% transparency */
+    --aurora_color0_60per: #8B5461; /* mix of aurora_color0 and 60% transparency */
+}
+
+/*=================================== DARK ==================================*/
+:root {
+    --bg_color: var(--night_color1);
+    --alt_bg_color: var(--night_color0);
+    --menu_color: var(--dark_color1);
+    --border_color: var(--dark_color0);
+
+	--text_color: var(--snow_color0);
+    --text_select_color: var(--night_color3);
+    --inverted_text_color: var(--dark_color1);
+    --deemphasized-text: var(--snow_color1);
+
+    --hover_color: var(--night_color2);
+    --active_color: var(--night_color3);
+    --focus_color: var(--frost_color0);
+
+    --accent_color: var(--frost_color2);
+    --accent_hover_color: var(--frost_color2_60per);
+    --alt_accent_color: var(--aurora_color1);
+    --alt_accent_focus_color: var(--aurora_color2);
+
+    --ok_color: var(--aurora_color3);
+    --not_ok_color: var(--aurora_color0);
+    --not_ok_hover_color: var(--aurora_color0_60per);
+
+    --link_color: var(--frost_color3);
+    --visited_link_color: var(--aurora_color4);
+}
+
+
+/*=================================== LIGHT =================================
+:root {
+    --bg_color: var(--snow_color2);
+    --alt_bg_color: var(--snow_color1);
+    --menu_color: var(--snow_color0);
+    --border_color: var(--frost_color2);
+
+    --text_color: var(--night_color0);
+    --text_select_color: var(--frost_color1);
+    --inverted_text_color: var(--snow_color0);
+    --deemphasized-text: var(--night_color3);
+
+    --hover_color: var(--frost_color0);
+    --active_color: var(--frost_color1);
+    --focus_color: var(--dark_color0);
+
+    --accent_color: var(--frost_color2);
+    --accent_hover_color: var(--frost_color2_60per);
+    --alt_accent_color: var(--dark_color0);
+    --alt_accent_focus_color: var(--aurora_color2);
+
+    --ok_color: var(--aurora_color3);
+    --not_ok_color: var(--aurora_color0);
+    --not_ok_hover_color: var(--aurora_color0_60per);
+
+    --link_color: var(--frost_color3);
+    --visited_link_color: var(--aurora_color4);
+}*/
+
+
+/*============================== PRIVATE THEME ==============================*/
+:root[privatebrowsingmode=temporary] {
+    --alt_accent_color: var(--aurora_color4);
 }

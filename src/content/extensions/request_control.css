@@ -1,0 +1,91 @@
+/*
+This file is part of Fjordic distributed under the MIT License
+
+Copyright (c) 2021 Maxim Shpak
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+/*================== Request Control ==================*/
+@-moz-document url-prefix("moz-extension://afb45fab-70be-4af1-a3b0-6f4f1474c2a8/") {
+/* https://github.com/tumpio/requestcontrol/blob/master/src/popup/browser-action.css */
+/* Pop-up */
+
+html, body {
+    color: var(--text_color) !important;
+}
+
+.header {
+    border-color: var(--border_color) !important;
+}
+
+.entry-header:hover {
+    background-color: var(--hover_color) !important;
+}
+
+#showRules {
+    background-color: var(--bg_color) !important;
+    color: var(--text_color) !important;
+    border-color: var(--border_color) !important;
+}
+
+#showRules:hover {
+    background-color: var(--hover_color) !important;
+}
+
+#toggleActive {
+    color: var(--text_color) !important;
+    background-color: var(--not_ok_color) !important;
+}
+
+#toggleActive.disabled {
+    background-color: var(--ok_color) !important;
+}
+
+#toggleActive:hover {
+    background-color: var(--aurora_color0_60per) !important;
+    opacity: 1 !important;
+}
+
+#toggleActive.disabled:hover {
+    background-color: var(--frost_color0) !important;
+}
+
+.entry {
+    border-color: var(--border_color) !important;
+}
+
+.url {
+    color: var(--link_color) !important;
+}
+
+#details label,
+.timestamp {
+    color: var(--deemphasized-text) !important;
+}
+
+.copyButton {
+    background-color: transparent !important;
+}
+
+.copyButton:hover {
+    background-color: var(--hover_color) !important;
+}
+}

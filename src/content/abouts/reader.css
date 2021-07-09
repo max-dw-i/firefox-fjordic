@@ -1,0 +1,62 @@
+/*
+This file is part of Fjordic distributed under the MIT License
+
+Copyright (c) 2021 Maxim Shpak
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+@-moz-document url-prefix("about:reader") {
+/* Change colors if needed
+body.dark {
+}
+
+body {
+    --main-background: #fff;
+    --main-foreground: #333;
+    --toolbar-border: var(--grey-90-a20);
+    --toolbar-box-shadow: var(--grey-90-a10);
+    --toolbar-button-hover: var(--grey-90-a30);
+    --toolbar-button-active: var(--grey-90-a80);
+    --popup-button-hover: hsla(0,0%,70%,.4);
+    --popup-button-active: hsla(240,5%,5%,.15);
+    --popup-bgcolor: white;
+    --popup-button: #edecf0;
+    --popup-line: #5c5c61;
+    --selected-background: var(--blue-40-a30);
+    --selected-border: var(--blue-40);
+    --font-value-border: var(--grey-30);
+    --font-color: #000000;
+    --icon-fill: #3b3b3c;
+    --icon-disabled-fill: #8080807F;
+    --link-foreground: var(--blue-60);
+    --link-selected-foreground: #333;
+    --visited-link-foreground: #e675fd;
+    --opaque-popup-border: #434146;
+    --tooltip-background: black;
+    --tooltip-foreground: white;
+} */
+
+button.close-button,
+button.dropdown-toggle {
+    transition: all 0.3s ease !important;
+    outline: none !important;
+}
+}

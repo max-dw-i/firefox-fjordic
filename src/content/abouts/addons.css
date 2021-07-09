@@ -1,0 +1,129 @@
+/*
+This file is part of Fjordic distributed under the MIT License
+
+Copyright (c) 2021 Maxim Shpak
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+@-moz-document url("about:addons") {
+/* Sidebar */
+#categories > .category,
+.sidebar-footer-link {
+    transition: all 0.3s ease !important;
+    outline: none !important;
+}
+
+.sidebar-footer-link {
+    border: 1px solid transparent !important;
+}
+
+#categories > .category:focus-visible,
+.sidebar-footer-link:focus-visible {
+    border-color: var(--focus_color) !important;
+}
+
+/* 'Back', 'Settings' buttons */
+.back-button,
+.page-options-menu > .more-options-button  {
+    background-color: transparent !important;
+}
+
+.back-button:hover,
+.page-options-menu > .more-options-button:hover {
+    fill: var(--in-content-primary-button-background) !important;
+}
+
+/* 'Settings' context menu */
+button[role="menuitem"] {
+    transition: none !important;
+}
+
+/* Addon 'cards' */
+.card {
+    transition: all 0.3s ease !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.card:hover {
+    background: var(--in-content-button-background-hover) !important;
+}
+
+addon-card[expanded] .addon.card {
+    background: var(--in-content-button-background-active) !important;
+}
+
+.card .addon-name-link:focus-visible {
+    color: var(--in-content-primary-button-background) !important;
+    outline: none !important;
+}
+
+.card .addon-badge:focus-visible {
+    outline-width: 1px !important;
+    outline-color: var(--focus_color) !important;
+}
+
+/* Extensions '3 dots' button, Theme 'Enable' button */
+.card .more-options-button,
+.card:hover .theme-enable-button {
+    background-color: transparent !important;
+}
+
+.card .more-options-button:hover,
+.card .theme-enable-button:hover {
+    color: var(--in-content-primary-button-background) !important;
+    fill: currentColor !important;
+}
+
+/* card tab button */
+button.tab-button[selected] {
+    border-top-color: var(--in-content-primary-button-background) !important;
+}
+
+button.tab-button:hover {
+    background-color: var(--in-content-button-background-hover) !important;
+}
+
+button.tab-button:hover:active {
+    background-color: var(--in-content-button-background-active) !important;
+}
+
+/* links */
+.addon-detail-row a:focus-visible {
+    text-decoration: underline !important;
+    outline: none !important;
+}
+
+/* 'Delete' button in 'Manage Extension Shortcuts' */
+addon-shortcuts .ghost-button:hover {
+    background-color: transparent !important;
+    fill: var(--in-content-primary-button-background) !important;
+}
+
+/* 'Show n more' button in 'Manage Extension Shortcuts' */
+addon-shortcuts .card:hover .expand-button {
+    background-color: transparent !important;
+}
+
+addon-shortcuts .card .expand-button:hover {
+    color: var(--in-content-primary-button-background) !important;
+}
+}

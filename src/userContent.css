@@ -1,7 +1,7 @@
 /*
 This file is part of Fjordic distributed under the MIT License
 
-Copyright (c) 2020 Maxim Shpak
+Copyright (c) 2021 Maxim Shpak
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -22,200 +22,16 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-
-@import "theme.css";
-@import "uBlock.css";
-
-
-body {
-    --newtab-background-color: var(--bg_color) !important;
-    --newtab-border-primary-color: var(--border_color) !important; /* 'Top Sites' edit button border, 'Top Sites' edit form action buttons border */
-    --newtab-border-secondary-color: var(--border_color) !important; /* search popup header, floating search borders, context menu separator */
-    --newtab-button-primary-color: var(--bookmark_color) !important; /* default buttons */
-    --newtab-card-active-outline-color: var(--active_tab_color) !important; /* 'Top Sites' hovered tile shadow */
-    --newtab-contextmenu-background-color: var(--menu_color) !important;
-    --newtab-contextmenu-button-color: var(--bg_color) !important; /* 'Top Sites' edit button background */
-    --newtab-element-active-color: var(--hover_color) !important; /* search popup engines hover color */
-    --newtab-element-hover-color: var(--hover_color) !important; /* customization button, context menu item hover color */
-    --newtab-icon-primary-color: var(--fg_color) !important; /* icons */
-    --newtab-icon-secondary-color: var(--fg_color) !important; /* 'empty' icon in 'Highlights' */
-    --newtab-inner-box-shadow-color: var(--border_color) !important; /* 'Top Sites' placeholder shadow */
-    --newtab-link-primary-color: var(--link_color) !important;
-    --newtab-modal-color: var(--bg_color) !important; /* 'Top Sites' edit form background */
-    --newtab-overlay-color: transparent !important; /* 'Top Sites' edit form overlay */
-    --newtab-search-border-color: var(--border_color) !important; /* search input border */
-    --newtab-search-dropdown-color: var(--menu_color) !important; /* search popup background */
-    --newtab-search-dropdown-header-color: var(--menu_color) !important; /* search popup header background */
-    --newtab-search-header-background-color: var(--bg_color) !important; /* floating search background */
-    --newtab-search-icon-color: var(--fg_color) !important; /* search arrow icon */
-    --newtab-search-wordmark-color: var(--fg_color) !important; /* firefox color */
-    --newtab-section-active-contextmenu-color: var(--fg_color) !important; /* 'Top Sites', 'Highlights' customization button (***) icon hover */
-    --newtab-section-header-text-color: var(--fg_color) !important; /* 'Top Sites', 'Highlights' text, icon; 'Top Sites' edit form text */
-    --newtab-icon-tertiary-color: var(--fg_color) !important; /* 'Top Sites' site pin icon */
-    --newtab-textbox-background-color: var(--sec_bg_color) !important; /* search, 'Top Sites' edit form inputs background */
-    --newtab-textbox-border: var(--border_color) !important; /* 'Top Sites' edit form inputs borders */
-    --newtab-textbox-focus-color: var(--active_tab_color) !important; /* focused search input border */
-    --newtab-text-primary-color: var(--fg_color) !important; /* text color */
-    --newtab-text-secondary-color: var(--fg_color) !important; /* search popup header text color */
-    --newtab-topsites-label-color: var(--fg_color) !important; /* 'Top Sites' site label */
-}
-
-
-/*================== FIREFOX BG COLOR ==================*/
-@-moz-document url("about:newtab"), url("about:home"), url("about:blank"), url("about:support"), url("about:config") {
-}
-
-
-/*================== SEARCH BAR ==================*/
-#newtab-search-text {
-    box-shadow: none !important;
-    outline: none !important;
-}
-
-#newtab-search-text::selection {
-    color: var(--fg_color) !important;
-    background-color: var(--select_color) !important;
-}
-
-#searchSubmit {
-    transition: all 0.3s ease !important;
-    background-color: transparent !important;
-}
-
-#searchSubmit:focus,
-#searchSubmit:hover {
-    fill: var(--active_tab_color) !important;
-    outline: none !important;
-}
-
-#searchSuggestionTable {
-    border: 1px solid var(--border_color) !important;
-    box-shadow: 0 0 15px var(--shadow_color) !important;
-}
-
-#searchSuggestionTable .contentSearchOneOffItem {
-    border-image: none !important;
-    border: none !important;
-}
-
-#contentSearchSettingsButton {
-    background-color: var(--hover_color) !important;
-}
-
-#contentSearchSettingsButton:hover,
-#contentSearchSettingsButton.selected {
-    color: var(--sec_bg_color) !important;
-}
-
-/* do not use suggestions */
-.contentSearchSuggestionsContainer {
-    border: none !important;
-}
-
-
-/*================== CUSTOMIZATION BUTTON ==================*/
-.prefs-button button {
-    transition: all 0.3s ease !important;
-    border-radius: 4px !important;
-}
-
-.prefs-button button:hover,
-.prefs-button button:focus {
-    outline: none !important;
-}
-
-
-/*================== TOP SITES AND HIGHLIGHTS' COMMON SELECTORS ==================*/
-.collapsible-section.active {
-    background-color: transparent !important;
-}
-
-.collapsible-section .section-title .click-target {
-    transition: all 0.3s ease !important;
-    padding: 3px !important;
-    border-radius: 4px !important;
-}
-
-.collapsible-section .section-title .click-target:hover,
-.collapsible-section .section-title .click-target:focus {
-    background-color: var(--hover_color) !important;
-    outline: none !important;
-}
-
-.collapsible-section > div > div > .context-menu-button {
-    transition: all 0.3s ease !important;
-    background-position: center !important;
-    border-radius: 4px !important;
-}
-
-.context-menu-button:hover,
-.context-menu-button:focus {
-    background-color: var(--hover_color) !important;
-    outline: none !important;
-}
-
-.context-menu,
-.context-menu {
-    border: 1px solid var(--border_color) !important;
-    border-radius: 0px !important;
-    box-shadow: 0 0 15px var(--shadow_color) !important;
-}
-
-.context-menu-item button.disabled:focus {
-    background-color: transparent !important;
-}
-
-
-/*================== TOP SITES ==================*/
-.edit-topsites > div > div {
-    border-radius: 0px !important;
-    box-shadow: 0 0 15px var(--shadow_color) !important;
-}
-
-.edit-topsites .topsite-form .enable-custom-image-input:focus {
-    outline: none !important;
-}
-
-.edit-topsites .topsite-form label input:hover,
-.edit-topsites .topsite-form label input:focus {
-    box-shadow: none !important;
-    outline: none !important;
-}
-
-.edit-topsites .topsite-form label input::selection {
-    color: var(--fg_color) !important;
-    background-color: var(--select_color) !important;
-}
-
-.edit-topsites .topsite-form label .icon {
-    transition: all 0.3s ease !important;
-    fill: var(--fg_color) !important;
-}
-
-.edit-topsites .topsite-form label .icon:hover,
-.edit-topsites .topsite-form label .icon:focus {
-    fill: var(--hover_color) !important;
-    outline: none !important;
-}
-
-.edit-topsites .actions button.cancel {
-    transition: all 0.3s ease !important;
-    box-shadow: none !important;
-}
-
-.edit-topsites .actions button.cancel:hover,
-.edit-topsites .actions button.cancel:focus {
-    background-color: var(--hover_color) !important;
-    outline: none !important;
-}
-
-.edit-topsites .actions button.done {
-    transition: all 0.3s ease !important;
-    box-shadow: none !important;
-}
-
-.edit-topsites .actions button.done:hover,
-.edit-topsites .actions button.done:focus {
-    color: var(--bg_color) !important;
-    outline: none !important;
-}
+@import "userColors.css";
+@import "content/common.css";
+@import "content/abouts/addons.css";
+@import "content/abouts/config.css";
+@import "content/abouts/logins.css";
+@import "content/abouts/newtab.css";
+@import "content/abouts/popups.css";
+@import "content/abouts/profiles.css";
+@import "content/abouts/preferences.css";
+@import "content/abouts/reader.css";
+@import "content/abouts/support.css";
+@import "content/extensions/uBlock.css";
+@import "content/extensions/request_control.css";

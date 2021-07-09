@@ -1,0 +1,92 @@
+/*
+This file is part of Fjordic distributed under the MIT License
+
+Copyright (c) 2021 Maxim Shpak
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+/*================== SIDEBAR ==================*/
+#sidebar-box {
+    --sidebar-background-color: var(--toolbar-bgcolor) !important;
+    --sidebar-border-color: var(--chrome-content-separator-color) !important;
+    --sidebar-text-color: var(--toolbar-color) !important;
+}
+
+.sidebar-splitter {
+    border-color: var(--chrome-content-separator-color) !important;
+    background-color: var(--arrowpanel-background) !important;
+}
+
+#sidebar-switcher-target,
+#sidebar-close {
+    transition: all 0.3s ease !important;
+    outline: 1px solid transparent !important;
+    outline-offset: 0px !important;
+}
+
+#sidebar-switcher-target:hover,
+#sidebar-close:hover {
+    background-color: var(--button-hover-bgcolor) !important;
+}
+
+#sidebar-switcher-target:-moz-focusring,
+#sidebar-close:-moz-focusring {
+    outline-color: var(--focus_color) !important;
+}
+
+#sidebar-switcher-target.active,
+#sidebar-close:active {
+    background-color: var(--button-active-bgcolor) !important;
+}
+
+#search-box {
+    -moz-appearance: none !important;
+    background-color: var(--input-bgcolor) !important;
+    border: 1px solid var(--input-border-color) !important;
+    border-radius: 3px !important;
+    color: var(--input-color) !important;
+}
+
+#search-box:focus-within {
+    border-color: var(--focus-outline-color) !important;
+}
+
+.sidebar-placesTreechildren {
+    color: var(--arrowpanel-color) !important;
+}
+
+.sidebar-placesTreechildren::-moz-tree-row(hover) {
+    background-color: var(--arrowpanel-dimmed) !important;
+}
+
+.sidebar-placesTreechildren::-moz-tree-row(current),
+.sidebar-placesTreechildren::-moz-tree-row(selected) {
+    background-color: var(--arrowpanel-dimmed-even-further) !important;
+    border: none !important;
+}
+
+.sidebar-placesTreechildren::-moz-tree-cell-text(selected) {
+    color: var(--arrowpanel-color) !important;
+}
+
+.sidebar-placesTreechildren::-moz-tree-separator {
+    border-color: var(--chrome-content-separator-color) !important;
+}

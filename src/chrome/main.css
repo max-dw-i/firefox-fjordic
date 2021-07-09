@@ -1,0 +1,715 @@
+/*
+This file is part of Fjordic distributed under the MIT License
+
+Copyright (c) 2021 Maxim Shpak
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+/*================ GLOBAL COLORS OVERRIDE ================*/
+:root
+{
+    --arrowpanel-background: var(--menu_color) !important; /* menus, e.g. bookmarks, hamburgers */
+    --arrowpanel-border-color: var(--border_color) !important; /* menus, e.g. bookmarks, hamburgers */
+    --arrowpanel-color: var(--text_color) !important; /* menus, e.g. bookmarks, hamburgers */
+    --arrowpanel-dimmed: var(--hover_color) !important; /* menu items hover, footer buttons background */
+    --arrowpanel-dimmed-further: var(--hover_color) !important; /* urlbar extended search engine buttons hover background, pressed arrowpanel items */
+    --arrowpanel-dimmed-even-further: var(--active_color) !important; /* hamburger 100% scale button pressed color */
+    --arrowpanel-menuitem-padding: 5px 8px !important;
+    --autocomplete-popup-background: var(--menu_color) !important; /* search bar popup background */
+    --autocomplete-popup-hover-background: var(--hover_color) !important; /* search engine icons in urlbar */
+    --autocomplete-popup-color: var(--text_color) !important; /* search bar popup text */
+    --autocomplete-popup-highlight-background: var(--hover_color) !important; /* search, url bars focus background */
+    --autocomplete-popup-highlight-color: var(--text_color) !important; /* search, url bars focused text */
+    --autocomplete-popup-separator-color: var(--border_color) !important;
+    --attention-icon-color: var(--accent_color) !important;
+    --button-bgcolor: var(--active_color) !important;
+    --button-color: var(--text_color) !important;
+    --button-hover-bgcolor: var(--hover_color) !important;
+    /*--button-hover-color: var(--text_color) !important;*/
+    --button-active-bgcolor: var(--active_color) !important;
+    /*--button-active-color: var(--text_color) !important;*/
+    --buttons-primary-button-bgcolor: var(--accent_color) !important;
+    --buttons-primary-button-color: var(--text_color) !important;
+    --buttons-primary-button-hover-bgcolor: var(--accent_hover_color) !important;
+    --buttons-primary-button-active-bgcolor: var(--active_color) !important;
+    --checkbox-border-color: var(--accent_color) !important;
+    --checkbox-checked-active-bgcolor: var(--accent_color) !important;
+    --checkbox-checked-bgcolor: var(--accent_color) !important;
+    --checkbox-checked-border-color: var(--accent_color) !important;
+    --checkbox-checked-color: var(--text_color) !important;
+    --checkbox-checked-hover-bgcolor: var(--accent_hover_color) !important;
+    --checkbox-unchecked-active-bgcolor: var(--active_color) !important;
+    --checkbox-unchecked-bgcolor: var(--alt_bg_color) !important;
+    --checkbox-unchecked-hover-bgcolor: var(--hover_color) !important;
+    --chrome-content-separator-color: var(--border_color) !important; /* some borders, e.g. between nav bar and page content */
+    --error-text-color: var(--not_ok_color) !important;
+    /*--focus-outline: 1px solid var(--focus-outline-color) !important;*/
+    --focus-outline-color: var(--alt_accent_color) !important; /* colour around focused element, e.g. tab */
+    --input-bgcolor: var(--alt_bg_color) !important;
+    --input-border-color: var(--border_color) !important;
+    --input-color: var(--text_color) !important;
+    --input-error-border-color: var(--not_ok_color) !important;
+    --lwt-toolbarbutton-active-background: var(--active_color) !important; /* new tab button icon, any other toolbar button active color */
+    --lwt-toolbarbutton-hover-background: var(--hover_color) !important; /* new tab button icon, any other toolbar button hover color */
+    --lwt-toolbarbutton-icon-fill: var(--text_color) !important; /* new tab button icon, any other toolbar button color */
+    --lwt-toolbarbutton-icon-fill-attention: var(--accent_color) !important; /* starred bookmark, active read mode, downloads done color */
+    --lwt-toolbar-field-color: var(--text_color) !important; /* urlbar text color */
+    --lwt-toolbar-field-focus-color: var(--text_color) !important; /* focused urlbar text color */
+    --lwt-toolbar-field-focus: var(--accent_color) !important; /* urlbar tooltip background when dark theme's active */
+    --panel-description-color: var(--active_color) !important; /* e.g. tracking protection pop-up */
+    --panel-disabled-color: var(--arrowpanel-dimmed-even-further) !important;
+    --panel-separator-color: var(--border_color) !important;
+    --tabpanel-background-color: var(--bg_color) !important; /* background when load page */
+    --tab-selected-bgcolor: var(--alt_accent_color) !important;
+    --toolbar-bgcolor: var(--bg_color) !important;
+    --toolbar-bgimage: none !important;
+    --toolbar-color: var(--text_color) !important;
+    --toolbar-field-non-lwt-color: var(--text_color) !important; /* urlbar, searchbar text colour */
+    /* --toolbar-field-focus-border-color: var(--alt_accent_color) !important; /* focused url, search bars border color */
+    --toolbarbutton-focus-outline: none !important;
+    --toolbarbutton-icon-fill: var(--text_color) !important;
+    --toolbarbutton-icon-fill-attention: var(--accent_color) !important; /* bookmark star */
+    --urlbar-box-bgcolor: var(--accent_color) !important; /* urlbar tooltips on the left, e.g. search engine name */
+    --urlbar-box-hover-bgcolor: var(--accent_hover_color) !important;
+    --urlbar-box-active-bgcolor: var(--hover_color) !important;
+    --urlbar-icon-fill-opacity: 0.9 !important; /* system, light, dark themes have different default opacity */
+    --urlbar-popup-action-color: var(--text_color) !important;
+    --urlbar-popup-url-color: var(--text_color) !important;
+    --urlbar-separator-color: var(--border_color) !important;
+}
+
+
+/*================== UI FONT ==================*/
+* {
+    /*font-family: Ubuntu !important; Does not work because of resistFingerprinting */
+    font-size: 9pt !important;
+}
+
+#urlbar-input {
+    font-size: 10pt !important;
+}
+
+
+/*================== GENERAL ==================*/
+::selection {
+    background-color: var(--text_select_color) !important;
+}
+
+.checkbox-check {
+    transition: all 0.3s ease !important;
+    outline: none !important;
+}
+
+checkbox:not([disabled="true"]):focus-visible > .checkbox-check {
+    border-color: var(--focus_color) !important;
+}
+
+
+/*================== MAIN HEADER ==================*/
+toolbox#navigator-toolbox {
+    border: 0px !important;
+}
+
+/* top corners of the window in light theme
+#navigator-toolbox {
+    border-top-left-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+} */
+
+
+/*================== TABS BAR ==================*/
+#titlebar #TabsToolbar {
+    padding-left: 2px !important;
+    background: var(--toolbar-bgcolor) !important;
+    /* round corners */
+    border-top-left-radius: 5px !important;
+    border-top-right-radius: 5px !important;
+}
+
+.titlebar-spacer[type="pre-tabs"] {
+    display: none !important;
+}
+
+.tab-background:not([selected="true"]) {
+    transition: all 0.3s ease !important;
+}
+
+.tabbrowser-tab:not([visuallyselected="true"]):not([multiselected]) {
+    color: var(--button-color) !important;
+}
+
+.tabbrowser-tab:hover > .tab-stack > .tab-background:not([selected="true"]):not([multiselected]) {
+    background-color: var(--button-hover-bgcolor) !important;
+}
+
+.tabbrowser-tab:focus:not([aria-activedescaendant]) > .tab-stack > .tab-background {
+    outline-color: var(--alt_accent_focus_color) !important;
+}
+
+.tabbrowser-tab[selected="true"] {
+    color: var(--inverted_text_color) !important;
+}
+
+/* light theme set it */
+#tabbrowser-tabs:not([movingtab]) > #tabbrowser-arrowscrollbox > .tabbrowser-tab > .tab-stack > .tab-background[selected="true"]:-moz-lwtheme {
+    background-color: var(--tab-selected-bgcolor) !important;
+    background-image: none !important;
+}
+
+/* light theme set it */
+#TabsToolbar:not([brighttext]) #tabbrowser-tabs:not([noshadowfortests]) .tabbrowser-tab:is([visuallyselected="true"], [multiselected]) > .tab-stack > .tab-background {
+    box-shadow: none !important;
+}
+
+.tab-close-button {
+    transition: all 0.3s ease !important;
+}
+
+/* default values are 10% and 20% */
+.tab-close-button:hover {
+    background-color: color-mix(in srgb, currentColor 6%, transparent) !important;
+}
+
+.tab-close-button:active {
+    background-color: color-mix(in srgb, currentColor 12%, transparent) !important;
+}
+
+/* Fix tab name glitches (by the close button) on hover */
+.tabbrowser-tab:hover {
+    --tab-label-mask-size: 2em !important;
+}
+
+.tabbrowser-tab:not(:hover) > .tab-stack > .tab-content > .tab-close-button {
+    padding-inline-start: 7px !important;
+    width: 24px !important;
+}
+
+
+/*================== NEW TAB BUTTON ==================*/
+#tabs-newtab-button > .toolbarbutton-icon {
+    transition: all 0.3s ease !important;
+    fill: var(--toolbarbutton-icon-fill) !important;
+}
+
+
+/*================== CAPTION BUTTONS ==================*/
+:root[tabsintitlebar] .titlebar-buttonbox {
+    margin-right: 4px;
+}
+
+
+/*================== NAV BAR ==================*/
+#nav-bar {
+    box-shadow: none !important;
+}
+
+#nav-bar .toolbarbutton-1 > .toolbarbutton-icon,
+#nav-bar .toolbarbutton-1 > .toolbarbutton-text,
+#nav-bar .toolbarbutton-1 > .toolbarbutton-badge-stack {
+    transition: all 0.3s ease !important;
+    outline: 1px solid transparent !important;
+    outline-offset: 0px !important;
+}
+
+#nav-bar .toolbarbutton-1:-moz-focusring > .toolbarbutton-icon,
+#nav-bar .toolbarbutton-1:-moz-focusring > .toolbarbutton-text,
+#nav-bar .toolbarbutton-1:-moz-focusring > .toolbarbutton-badge-stack {
+    outline-color: var(--focus_color) !important;
+}
+
+
+/*================== URL BAR ==================*/
+#urlbar-input {
+    text-align: center !important;
+}
+
+#urlbar-input > menupopup {
+    text-align: left !important;
+}
+
+#urlbar-background {
+    background-color: var(--input-bgcolor) !important;
+    border-color: var(--input-border-color) !important;
+}
+
+#urlbar[focused="true"] > #urlbar-background {
+    border-color: var(--focus-outline-color) !important;
+    border-width: 1px !important;
+}
+
+#tracking-protection-icon-container,
+#identity-icon-box,
+#identity-permission-box,
+#notification-popup-box,
+#urlbar-label-box,
+.urlbar-icon,
+#star-button-box,
+.searchbar-engine-one-off-item {
+    transition: all 0.3s ease !important;
+    outline: 1px solid transparent !important;
+    outline-offset: 0px !important;
+}
+
+#tracking-protection-icon-container:hover,
+#identity-icon-box:hover,
+#identity-permission-box:hover,
+#notification-popup-box:hover,
+#urlbar-label-box:hover,
+/* .urlbar-icon is white on hover no matter what */
+#star-button-box:hover,
+#urlbar-go-button:hover {
+    background-color: var(--button-hover-bgcolor) !important;
+}
+
+#tracking-protection-icon-container:-moz-focusring,
+#identity-icon-box:-moz-focusring,
+#identity-permission-box:-moz-focusring,
+.searchbar-engine-one-off-item[selected] {
+    outline-color: var(--focus_color) !important;
+}
+
+.searchbar-engine-one-off-item[selected] {
+    background-color: transparent !important;
+}
+
+#tracking-protection-icon-container[open],
+#identity-icon-box[open],
+#identity-permission-box[open],
+#notification-popup-box[open],
+#urlbar-label-box[open],
+#star-button-box[open],
+#urlbar-go-button:active {
+    background-color: var(--button-active-bgcolor) !important;
+}
+
+#urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box[hasException] > #tracking-protection-icon {
+    fill: var(--error-text-color) !important;
+}
+
+/* search engine tooltip */
+#identity-icon-label,
+#urlbar-search-mode-indicator-close {
+    transition: all 0.3s ease !important;
+}
+
+#urlbar-search-mode-indicator-close {
+    /* --lwt-toolbar-field-focus-color can be used */
+    fill: var(--toolbarbutton-icon-fill) !important;
+}
+
+#urlbar-search-mode-indicator-close:hover {
+    background-color: var(--buttons-primary-button-hover-bgcolor) !important;
+}
+
+#urlbar-search-mode-indicator-close:active {
+    background-color: var(--buttons-primary-button-active-bgcolor) !important;
+}
+
+/* 'switch tab' button in expanded urlbar */
+.urlbarView-row:is([type="switchtab"], [type="remotetab"]):is([selected], :hover) > .urlbarView-row-inner > .urlbarView-no-wrap > .urlbarView-action {
+    background-color: var(--buttons-primary-button-hover-bgcolor) !important;
+    color: var(--button-color) !important;
+}
+
+
+/*================== SEARCH BAR ==================*/
+#searchbar {
+    background-color: var(--input-bgcolor) !important;
+    border-color: var(--input-border-color) !important;
+    box-shadow: none !important;
+}
+
+#searchbar:focus-within {
+    border-color: var(--focus-outline-color) !important;
+}
+
+.search-go-button:hover {
+    background-color: var(--button-hover-bgcolor) !important;
+}
+
+.search-go-button:active {
+    background-color: var(--button-active-bgcolor) !important;
+}
+
+#searchbar-anon-search-settings {
+    outline: 1px solid transparent !important;
+    outline-offset: 0px !important;
+    box-shadow: none !important;
+}
+
+#searchbar-anon-search-settings[selected] {
+    outline-color: var(--focus_color) !important;
+}
+
+
+/*================== COMMON SELECTORS FOR TRACKING PROTECTION POPUP,
+                     SITE INFORMATION (LOCK ICON), POPUP NOTIFICATION,
+                     BOOKMARK POPUP, PANELS ===============================================*/
+.subviewbutton-back {
+    transition: all 0.3s ease !important;
+}
+
+.subviewbutton-back:-moz-focusring,
+.panel-footer.panel-footer-menulike > button:focus-visible,
+toolbarbutton.subviewbutton:not([disabled], [open], :active):is(:focus) {
+    background-color: var(--button-hover-bgcolor) !important;
+    box-shadow: none !important;
+}
+
+.text-link {
+    text-decoration: none !important;
+    color: var(--link_color) !important;
+}
+
+.text-link:hover,
+.text-link:focus-visible {
+    text-decoration: underline !important;
+    outline: none !important;
+}
+
+
+/*================== TRACKING PROTECTION POPUP ==================*/
+#protections-popup-mainView-panel-header-section {
+    color: var(--inverted_text_color) !important;
+    background: radial-gradient(circle farthest-side at top right, var(--buttons-primary-button-bgcolor), var(--focus-outline-color)) !important;
+}
+
+#protections-popup-info-button,
+#protections-popup-info-button > image {
+    transition: all 0.3s ease !important;
+}
+
+#protections-popup-info-button:hover > image,
+#protections-popup-info-button:-moz-focusring > image {
+    fill: var(--toolbarbutton-icon-fill) !important;
+}
+
+.protections-popup-tp-switch {
+    transition: all 0.3s ease !important;
+    border-color: var(--buttons-primary-button-bgcolor) !important;
+    outline: none !important;
+}
+
+/* these can be used for 'off' state
+--protections-popup-switch-off-background: ...;
+--protections-popup-switch-off-hover-background: ...;
+--protections-popup-switch-off-active-background: ...; */
+
+.protections-popup-tp-switch[enabled] {
+    background-color: var(--buttons-primary-button-bgcolor) !important;
+}
+
+.protections-popup-tp-switch:not([enabled]) {
+    background-color: var(--checkbox-unchecked-bgcolor) !important;
+}
+
+.protections-popup-tp-switch:not([enabled]):hover {
+    background-color: var(--button-hover-bgcolor) !important;
+}
+
+.protections-popup-tp-switch[enabled]:hover {
+    background-color: var(--buttons-primary-button-hover-bgcolor) !important;
+}
+
+.protections-popup-tp-switch:focus-visible {
+    border-color: var(--focus_color) !important;
+}
+
+.protections-popup-tp-switch:not([enabled]):active {
+    background-color: var(--button-active-bgcolor) !important;
+}
+
+.protections-popup-tp-switch[enabled]:active {
+    background-color: var(--buttons-primary-button-active-bgcolor) !important;
+}
+
+.protections-popup-tp-switch::before {
+    background: var(--toolbarbutton-icon-fill) !important;
+}
+
+.protections-popup-category:focus-visible,
+.protections-popup-footer-button:focus-visible {
+    background-color: var(--button-hover-bgcolor) !important;
+    box-shadow: none !important;
+}
+
+#protections-popup-not-blocking-section-why:hover {
+    background-color: transparent !important;
+    outline: none !important;
+    color: var(--arrowpanel-color) !important;
+}
+
+
+/*================== IDENTITY (LOCK) POPUP ==================*/
+#identity-popup-security-httpsonlymode-menulist {
+    outline: none !important;
+}
+
+#identity-popup-security-httpsonlymode-menulist:focus {
+    background-color: var(--button-hover-bgcolor) !important;
+}
+
+#identity-popup-security-httpsonlymode-menulist[open="true"] {
+    background-color: var(--button-active-bgcolor) !important;
+}
+
+
+/*================== PERMISSIONS POPUP ==================*/
+.permission-popup-permission-remove-button {
+    transition: all 0.3s ease !important;
+    opacity: 1 !important;
+    outline: 1px solid transparent !important;
+    outline-offset: 0px !important;
+}
+
+.permission-popup-permission-remove-button:focus-visible {
+    outline-color: var(--focus_color) !important;
+}
+
+
+/*================== POPUP NOTIFICATION ==================*/
+/* See also variables --button..., --checkbox... */
+popupnotification .messageCloseButton,
+.popup-notification-button {
+    transition: all 0.3s ease !important;
+    outline: 1px solid transparent !important;
+    outline-offset: 0px !important;
+}
+
+popupnotification .messageCloseButton:hover {
+    background-color: var(--button-hover-bgcolor) !important;
+}
+
+popupnotification .messageCloseButton:focus-visible,
+.popup-notification-button:-moz-focusring {
+    outline-color: var(--focus_color) !important;
+}
+
+popupnotification .messageCloseButton:active {
+    background-color: var(--button-active-bgcolor) !important;
+}
+
+
+/*================== BOOKMARK POPUP ==================*/
+/* See also variables --buttons..., --input... */
+#editBookmarkPanelImage,
+#editBookmarkSeparator {
+    display: none !important;
+}
+
+#editBMPanel_namePicker:focus-visible,
+#editBMPanel_locationField:focus-visible,
+#editBMPanel_tagsField:focus-visible,
+#editBMPanel_keywordField:focus-visible {
+    outline-width: 1px !important;
+}
+
+#editBookmarkPanelRemoveButton,
+#editBookmarkPanelDoneButton {
+    transition: all 0.3s ease !important;
+    outline: 1px solid transparent !important;
+    outline-offset: 0px !important;
+}
+
+#editBookmarkPanelRemoveButton:-moz-focusring,
+#editBookmarkPanelDoneButton:-moz-focusring {
+    outline-color: var(--focus_color) !important;
+}
+
+#editBMPanel_folderMenuList,
+.expander-down,
+.expander-up {
+    transition: all 0.3s ease !important;
+    border-radius: 3px !important;
+    --button-bgcolor: transparent !important;
+    outline: 1px solid transparent !important;
+    outline-offset: 0px !important;
+}
+
+#editBMPanel_folderMenuList:-moz-focusring,
+.expander-down:-moz-focusring,
+.expander-up:-moz-focusring {
+    outline-color: var(--focus_color) !important;
+}
+
+#editBMPanel_folderMenuList[open="true"] {
+    background-color: var(--button-active-bgcolor) !important;
+}
+
+#editBMPanel_folderTree,
+#editBMPanel_tagsSelector {
+    -moz-appearance: none !important;
+    background-color: var(--input-bgcolor) !important;
+    border: 1px solid var(--chrome-content-separator-color) !important;
+    color: var(--input-color) !important;
+}
+
+#editBMPanel_folderTree,
+#editBMPanel_tagsSelector {
+    outline: 1px solid transparent !important;
+    outline-offset: 0px !important;
+}
+
+#editBMPanel_folderTree:focus-visible,
+#editBMPanel_tagsSelector:focus-visible {
+    outline-color: var(--focus_color) !important;
+}
+
+#editBMPanel_folderTree treechildren::-moz-tree-row(selected) {
+    background-color: var(--arrowpanel-dimmed-even-further) !important;
+    border: none !important;
+}
+
+#editBMPanel_folderTree treechildren::-moz-tree-cell-text(selected) {
+    color: var(--arrowpanel-color) !important;
+}
+
+#editBMPanel_newFolderButton {
+    -moz-appearance: none !important;
+    transition: all 0.3s ease !important;
+    padding: 3px 10px !important;
+    min-height: 26px !important;
+    color: var(--button-color) !important;
+    font-weight: 600 !important;
+    background-color: var(--button-bgcolor) !important;
+    border: 0 !important;
+    border-radius: 4px !important;
+    outline: 1px solid transparent !important;
+    outline-offset: 0px !important;
+}
+
+#editBMPanel_newFolderButton:hover {
+    background-color: var(--button-hover-bgcolor) !important;
+}
+
+#editBMPanel_newFolderButton:focus-visible {
+    outline-color: var(--focus_color) !important;
+}
+
+#editBMPanel_newFolderButton:active {
+    background-color: var(--button-active-bgcolor) !important;
+}
+
+#editBMPanel_tagsSelector > richlistitem {
+    background-color: transparent !important;
+    color: var(--arrowpanel-color) !important;
+}
+
+#editBMPanel_tagsSelector > richlistitem[current="true"] {
+    background-color: var(--arrowpanel-dimmed) !important;
+}
+
+/* Tag checkboxes - native for now, need custom icons for this
+#editBMPanel_tagsSelector > richlistitem image {
+}
+#editBMPanel_tagsSelector > richlistitem[checked="true"] image {
+} */
+
+/* tooltip when bookmark added */
+#confirmation-hint {
+    /* --arrowpanel-background: var(--color) !important;
+    --arrowpanel-border-color: var(--color) !important;
+    --arrowpanel-color: var(--color) !important; */
+    display: none !important;
+}
+
+
+/*============== STATUS LABEL ================*/
+#statuspanel-label {
+    background-color: var(--toolbar-bgcolor) !important;
+    color: var(--toolbar-color) !important;
+    border-color: var(--arrowpanel-border-color) !important;
+}
+
+
+/*============== FIND BAR ================*/
+findbar {
+    background-color: var(--toolbar-bgcolor) !important;
+    color: var(--toolbar-color) !important;
+    border-color: var(--panel-separator-color) !important;
+}
+
+.findbar-textbox {
+    background-color: var(--input-bgcolor) !important;
+    color: var(--input-color) !important;
+}
+
+.findbar-textbox:focus {
+    border-color: var(--focus-outline-color) !important;
+    outline: none !important;
+}
+
+.findbar-textbox[status="notfound"] {
+    background-color: var(--error-text-color) !important;
+    border-color: var(--error-text-color) !important;
+}
+
+.findbar-find-previous,
+.findbar-find-next,
+.findbar-closebutton {
+    transition: all 0.3s ease !important;
+    outline: 1px solid transparent !important;
+    outline-offset: 0px !important;
+}
+
+.findbar-find-previous:not([disabled="true"]):focus-visible,
+.findbar-find-next:not([disabled="true"]):focus-visible,
+.findbar-closebutton:focus-visible {
+    outline-color: var(--focus_color) !important;
+}
+
+.findbar-closebutton:hover {
+    background-color: var(--button-hover-bgcolor) !important;
+}
+
+.findbar-closebutton:active {
+    background-color: var(--button-active-bgcolor) !important;
+}
+
+
+/*================== PROGRESS BAR ==================*/
+::-moz-progress-bar {
+    background-color: var(--buttons-primary-button-bgcolor) !important;
+}
+
+.downloadProgress {
+    background-color: var(--input-bgcolor) !important;
+}
+
+.downloadButton {
+    transition: all 0.3s ease !important;
+    outline: none !important;
+}
+
+.downloadButton:focus-visible {
+    background-color: var(--button-hover-bgcolor) !important;
+}
+
+
+/*================================ TOOLTIPS =================================*/
+/* Not all tooltips are changed
+tooltip {
+	-moz-appearance: none !important;
+	color: var(--color1) !important;
+	background-color: var(--color2) !important;
+	border: 1px solid var(--color3) !important;
+	padding: 6px !important;
+} */

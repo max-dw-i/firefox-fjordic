@@ -1,0 +1,268 @@
+/*
+This file is part of Fjordic distributed under the MIT License
+
+Copyright (c) 2021 Maxim Shpak
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+
+
+@-moz-document url("about:newtab"), url("about:home"), url("about:blank") {
+body
+{
+    --customize-menu-background: var(--bg_color) !important;
+    --customize-menu-check-fill: var(--text_color) !important; /* customization menu checkbox 'check thing' colour */
+    --customize-menu-primary-action-text: var(--text_color) !important; /* customization menu slider */
+    --customize-menu-primary-text-color: var(--text_color) !important;
+    --customize-menu-line-color: var(--border_color) !important; /* customization menu row selector border colour */
+    --customize-menu-secondary-action-background: var(--active_color) !important; /* customization menu close button */
+    --customize-menu-secondary-action-background-active: var(--active_color) !important; /* customization menu close button */
+    --customize-menu-secondary-action-background-hover: var(--hover_color) !important; /* customization menu close button */
+
+    --newtab-background-color: var(--bg_color) !important;
+    --newtab-background-button-color: var(--active_color) !important;
+    --newtab-background-button-text-color: var(--text_color) !important;
+    --newtab-background-button-hover-color: var(--hover_color) !important;
+    --newtab-background-button-active-color: var(--active_color) !important;
+    --newtab-background-primary-text-color: var(--text_color) !important; /* 'Top Sites' text */
+    --newtab-border-secondary-color: var(--border_color) !important; /* 'Top Sites' edit form border */
+    --newtab-button-secondary-color: var(--active_color) !important; /* 'Top Sites' edit form button bg */
+    --newtab-button-primary-color: var(--accent_color) !important; /* 'Top Sites' edit form primary button bg */
+    --newtab-contextmenu-background-color: var(--menu_color) !important; /* 'Top Sites' context menu bg color */
+    --newtab-element-active-color: var(--active_color) !important; /* 'Top Sites' context menu select color */
+    --newtab-element-hover-color: var(--hover_color) !important; /* 'Top Sites' context menu hover color */
+    --newtab-focus-border: transparent !important; /* focused search input border */
+    --newtab-focus-outline: var(--alt_accent_color) !important; /* focused search input outline */
+    --newtab-icon-primary-color: var(--text_color) !important; /* 'Top Sites' (***) button */
+    --newtab-icon-secondary-color: var(--text_color) !important; /* 'empty' icon in 'Highlights' */
+    --newtab-link-primary-color: var(--link_color) !important;
+    --newtab-modal-color: var(--bg_color) !important; /* 'Top Sites' edit form background */
+    --newtab-overlay-color: var(--overlay_color) !important; /* 'Top Sites' edit form overlay */
+    --newtab-primary-action-background: var(--accent_color) !important; /* customization menu slider */
+    --newtab-primary-action-background-off: var(--alt_bg_color) !important; /* customization menu slider */
+    --newtab-search-text-color: var(--text_color) !important; /* search text colour */
+    --newtab-section-header-text-color: var(--text_color) !important; /* 'Top Sites' edit form header text */
+    --newtab-textbox-background-color: var(--alt_bg_color) !important; /* search, 'Top Sites' edit form inputs background */
+    --newtab-textbox-border: var(--border_color) !important; /* 'Top Sites' edit form inputs borders */
+    --newtab-text-primary-color: var(--text_color) !important; /* text color */
+    --newtab-topsites-background-color: transparent !important; /* 'Top Sites' background */
+    --newtab-topsites-context-menu-hover: var(--active_color) !important; /* 'Top Sites' context menu focus */
+    --newtab-topsites-outer-card-hover: var(--hover_color) !important; /* 'Top Sites' card hover */
+    --newtab-wordmark-color: var(--text_color) !important; /* firefox color */
+}
+
+
+/*================== SEARCH BAR ==================*/
+.outer-wrapper.newtab-experience .search-wrapper .search-handoff-button {
+    background-color: var(--newtab-textbox-background-color) !important;
+    border: 1px solid var(--newtab-border-secondary-color) !important;
+    border-radius: 10px !important;
+}
+
+.outer-wrapper.newtab-experience .search-wrapper.fake-focus .search-handoff-button {
+    border-color: var(--newtab-focus-outline) !important;
+}
+
+
+/*================== CUSTOMIZATION BUTTON ==================*/
+.personalize-button {
+    background-color: transparent !important;
+}
+
+.personalize-button:hover {
+    color: var(--newtab-primary-action-background) !important;
+}
+
+
+/*================== CUSTOMIZATION MENU ==================*/
+/* Slider */
+.home-section .section .slider {
+    transition: all 0.3s ease !important;
+    border-color: var(--newtab-button-primary-color) !important;
+    box-shadow: none !important;
+}
+
+.home-section .section .slider:hover {
+    background-color: var(--newtab-background-button-hover-color) !important;
+}
+
+.home-section .section .slider:active {
+    background-color: var(--newtab-background-button-active-color) !important;
+}
+
+.home-section .section input:checked:hover + .slider {
+    background-color: var(--in-content-primary-button-background-hover) !important;
+}
+
+.home-section .section input:checked + .slider:active {
+    background-color: var(--newtab-button-primary-color) !important;
+}
+
+.home-section .section input:focus-visible + .slider {
+    border-color: var(--focus_color) !important;
+}
+
+/* Row selector */
+.home-section .section .selector {
+    transition: all 0.3s ease !important;
+    background-color: var(--newtab-button-secondary-color) !important;
+    box-shadow: none !important;
+}
+
+.home-section .section .selector:hover {
+    background-color: var(--newtab-background-button-hover-color) !important;
+}
+
+/* Checkbox */
+.home-section .section .sponsored-checkbox {
+    transition: all 0.3s ease !important;
+    border-color: var(--newtab-button-primary-color) !important;
+    box-shadow: none !important;
+}
+
+.home-section .section .sponsored-checkbox:hover {
+    background-color: var(--newtab-element-hover-color) !important;
+}
+
+.home-section .section .sponsored-checkbox:checked:hover {
+    background-color: var(--checkbox-checked-hover-bgcolor) !important;
+}
+
+.home-section .section .sponsored-checkbox:active {
+    background-color: var(--newtab-background-button-active-color) !important;
+}
+
+.home-section .section .sponsored-checkbox:checked:active {
+    background-color: var(--newtab-button-primary-color) !important;
+}
+
+/* 'Manage more settings' */
+.home-section .external-link:focus-visible {
+    background-color: transparent !important;
+    text-decoration: underline !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+
+/*================== TOP SITES ==================*/
+.top-sites-list {
+    text-align: center !important;
+}
+
+.top-sites-list .top-site-button .tile {
+    box-shadow: none !important;
+}
+
+.top-sites-list .top-site-button:focus-visible .tile {
+    outline: 2px solid var(--newtab-focus-outline) !important;
+}
+
+.outer-wrapper.newtab-experience:not(.dnd-active) .top-site-outer,
+.outer-wrapper.newtab-experience:not(.dnd-active) .top-site-outer .context-menu-button {
+    transition: all 0.3s ease !important;
+}
+
+.outer-wrapper.newtab-experience:not(.dnd-active) .top-site-outer .context-menu-button {
+    background-color: transparent !important;
+}
+
+.outer-wrapper.newtab-experience:not(.dnd-active) .top-site-outer .context-menu-button:hover,
+.outer-wrapper.newtab-experience:not(.dnd-active) .top-site-outer .context-menu-button:focus-visible:hover {
+    fill: var(--newtab-button-primary-color) !important;
+}
+
+.outer-wrapper.newtab-experience:not(.dnd-active) .top-site-outer .context-menu-button:focus-visible {
+    fill: var(--text_color) !important;
+}
+
+/* '***' context menu */
+button[role="menuitem"] {
+    transition: none !important;
+}
+
+button[role="menuitem"]:focus-visible {
+    background-color: transparent !important;
+}
+
+/* Search icon for search engine card */
+.top-site-outer .search-topsite {
+    background-color: var(--newtab-button-primary-color) !important;
+    fill: var(--inverted_text_color) !important;
+}
+
+
+/*================== RECENT ACTIVITY ==================*/
+.sections-list .section-empty-state {
+    --newtab-border-secondary-color: var(--newtab-text-primary-color) !important;
+}
+
+
+/*================== 'TOP SITES' EDIT FORM ==================*/
+.edit-topsites-wrapper .form-input-container input {
+    outline: none !important;
+}
+
+.edit-topsites-wrapper .form-input-container input:focus-within {
+    border-color: var(--newtab-focus-outline) !important;
+}
+
+.edit-topsites-wrapper .modal .icon-clear-input {
+    transition: all 0.3s ease !important;
+}
+
+.edit-topsites-wrapper .modal .icon-clear-input:hover,
+.edit-topsites-wrapper .modal .icon-clear-input:focus-visible:hover {
+    fill: var(--newtab-background-button-hover-color) !important;
+}
+
+.edit-topsites-wrapper .modal .icon-clear-input:active,
+.edit-topsites-wrapper .modal .icon-clear-input:focus-visible:hover {
+    fill: var(--newtab-background-button-active-color) !important;
+}
+
+.a11y-link-button::selection { /* some glitch, without it */
+    background-color: none !important;
+}
+
+.a11y-link-button:focus-visible {
+    text-decoration: underline !important;
+    border-color: transparent !important;
+}
+
+.topsite-form .actions button {
+    border: 1px solid transparent !important;
+}
+
+.topsite-form .actions button[type="submit"] {
+    color: var(--newtab-background-primary-text-color) !important;
+}
+
+.topsite-form .actions button:hover {
+    background-color: var(--newtab-background-button-hover-color) !important;
+}
+
+.topsite-form .actions button[type="submit"]:hover {
+    background-color: var(--in-content-primary-button-background-hover) !important;
+}
+
+.topsite-form .actions button:focus-visible {
+    border-color: var(--focus_color) !important;
+}
+}
